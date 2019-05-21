@@ -1,0 +1,40 @@
+<div class="BigWrapper">
+  <div class="Header">
+    <h1>Yelp Restaurant Finder</h1>
+
+    <form [formGroup]= "restaurantForm" (submit)="onSubmit()">
+      <label>State</label>
+      <input placeholder="Enter State" formControlName="state" type="text" required>
+    
+      <label>City</label>
+      <input placeholder="Enter City" formControlName="city" type="text" required>
+    
+      <label>Price</label>
+      <select formControlName="priceInfo" required>
+        <option value="1">$</option>
+        <option value="2">$$</option>
+        <option value="3">$$$</option>
+        <option value="4">$$$$</option>
+        <option value="5">$$$$$</option>
+      </select>
+      <button (click)="onSubmit" type="submit">Find me A Restaurant!</button>
+    </form>
+    </div>
+    
+    <div *ngIf="randominfo">
+    
+    
+    <img src="{{randominfo.image_url}}">
+    <p>Restaurant Name: {{randominfo.name}}</p>
+    <p>Address: {{randominfo.location.address1}},{{randominfo.location.city}},{{randominfo.location.state}},{{randominfo.location.zip_code}}</p>
+    <p>Price Point: {{randominfo.price}}</p>
+    <p>Rating: {{randominfo.rating}}</p>
+    <p>Delivery/Takeout: {{randominfo.transactions}}</p>
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
